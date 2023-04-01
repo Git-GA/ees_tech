@@ -1,0 +1,4 @@
+# Config
+input_directory: lib/i18n
+input_file_pattern: .i18n.yaml
+namespaces: true

@@ -2,6 +2,8 @@ import 'package:ees_tech/pages/register_page.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
+import '../i18n/en_US/strings.g.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -24,8 +26,8 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Sign in',
+            Text(
+              t.auth.authorization,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
@@ -44,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                         : "Please enter a valid email",
                     maxLines: 1,
                     decoration: InputDecoration(
-                      hintText: 'Enter your email',
+                      hintText: t.auth.login,
                       prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -65,18 +67,13 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.lock),
-                      hintText: 'Enter your password',
+                      hintText: t.auth.password,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
                   ),
-                  const SizedBox(
-                    height: 20,
-                  ),
                   CheckboxListTile(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
                     title: const Text("Remember me"),
                     contentPadding: EdgeInsets.zero,
                     value: rememberValue,
@@ -98,8 +95,8 @@ class _LoginPageState extends State<LoginPage> {
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                     ),
-                    child: const Text(
-                      'Sign in',
+                    child: Text(
+                      t.auth.sign_in,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -111,7 +108,7 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Not registered yet?'),
+                      Text(t.auth.no_accont),
                       TextButton(
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -122,7 +119,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           );
                         },
-                        child: const Text('Create an account'),
+                        child: Text(t.auth.sign_up),
                       ),
                     ],
                   ),
