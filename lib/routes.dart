@@ -29,6 +29,11 @@ final router = GoRouter(
                       label: t.navbar.homepage,
                     ),
                     NavigationDestination(
+                      selectedIcon: Icon(Icons.library_books),
+                      icon: Icon(Icons.library_books_outlined),
+                      label: t.navbar.courses,
+                    ),
+                    NavigationDestination(
                       selectedIcon: Icon(Icons.person_2),
                       icon: Icon(Icons.person_2_outlined),
                       label: t.navbar.profile,
@@ -37,7 +42,7 @@ final router = GoRouter(
                   // Используем context.go для перехода к нужному маршруту при нажатии на вкладку
                   onDestinationSelected: (index) {
                     _controller.page(index);
-                    return context.go(['/home', '/profile'][index]);
+                    return context.go(['/home', '/courses', '/profile'][index]);
                   }),
             ));
       },
