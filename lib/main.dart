@@ -36,10 +36,12 @@ class MyApp extends StatelessWidget {
       localizationsDelegates: GlobalMaterialLocalizations.delegates,
 
       theme: ThemeData(
+        colorSchemeSeed: Colors.indigo,
         useMaterial3: true,
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
+        colorSchemeSeed: Colors.indigo,
         useMaterial3: true,
       ),
       routerConfig: router,
