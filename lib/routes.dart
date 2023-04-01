@@ -1,5 +1,6 @@
 import 'package:ees_tech/controllers/main.dart';
 import 'package:ees_tech/pages/homepage.dart';
+import 'package:ees_tech/pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -48,10 +49,17 @@ final router = GoRouter(
               NoTransitionPage<void>(key: state.pageKey, child: HomePage()),
         ),
         GoRoute(
-          path: '/profile',
+          path: '/courses',
           pageBuilder: (context, state) => NoTransitionPage<void>(
             key: state.pageKey,
             child: Scaffold(),
+          ),
+        ),
+        GoRoute(
+          path: '/profile',
+          pageBuilder: (context, state) => NoTransitionPage<void>(
+            key: state.pageKey,
+            child: ProfilePage(),
           ),
         ),
       ],

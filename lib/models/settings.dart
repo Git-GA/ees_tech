@@ -4,7 +4,7 @@ part 'settings.g.dart';
 
 @collection
 class Settings {
-  Id id = Isar.autoIncrement;
+  Id? id;
 
   String? lang;
 

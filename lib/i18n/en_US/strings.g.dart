@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 18 (9 per locale)
+/// Strings: 20 (10 per locale)
 ///
-/// Built on 2023-04-01 at 07:53 UTC
+/// Built on 2023-04-01 at 14:15 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -175,6 +175,7 @@ class _StringsNavbarEn {
 
 	// Translations
 	String get homepage => 'Home';
+	String get courses => 'Courses';
 	String get profile => 'Profile';
 }
 
@@ -231,6 +232,7 @@ class _StringsNavbarRu implements _StringsNavbarEn {
 
 	// Translations
 	@override String get homepage => 'Главная';
+	@override String get courses => 'Курсы';
 	@override String get profile => 'Профиль';
 }
 
@@ -248,6 +250,7 @@ extension on _StringsEn {
 			case 'auth.sign_in': return 'Sign In';
 			case 'auth.foggot_password': return 'Foggot Password?';
 			case 'navbar.homepage': return 'Home';
+			case 'navbar.courses': return 'Courses';
 			case 'navbar.profile': return 'Profile';
 			default: return null;
 		}
@@ -265,6 +268,7 @@ extension on _StringsRu {
 			case 'auth.sign_in': return 'Войти';
 			case 'auth.foggot_password': return 'Забыли пароль?';
 			case 'navbar.homepage': return 'Главная';
+			case 'navbar.courses': return 'Курсы';
 			case 'navbar.profile': return 'Профиль';
 			default: return null;
 		}
