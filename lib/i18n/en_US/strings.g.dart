@@ -1,9 +1,9 @@
 /// Generated file. Do not edit.
 ///
 /// Locales: 2
-/// Strings: 4 (2 per locale)
+/// Strings: 18 (9 per locale)
 ///
-/// Built on 2023-04-01 at 07:36 UTC
+/// Built on 2023-04-01 at 07:53 UTC
 
 // coverage:ignore-file
 // ignore_for_file: type=lint
@@ -147,7 +147,24 @@ class _StringsEn implements BaseTranslations<AppLocale, _StringsEn> {
 	late final _StringsEn _root = this; // ignore: unused_field
 
 	// Translations
+	late final _StringsAuthEn auth = _StringsAuthEn._(_root);
 	late final _StringsNavbarEn navbar = _StringsNavbarEn._(_root);
+}
+
+// Path: auth
+class _StringsAuthEn {
+	_StringsAuthEn._(this._root);
+
+	final _StringsEn _root; // ignore: unused_field
+
+	// Translations
+	String get authorization => 'Authorization';
+	String get login => 'Login';
+	String get password => 'Password';
+	String get no_accont => 'No account?';
+	String get sign_up => 'Sing Up';
+	String get sign_in => 'Sign In';
+	String get foggot_password => 'Foggot Password?';
 }
 
 // Path: navbar
@@ -186,7 +203,24 @@ class _StringsRu implements _StringsEn {
 	@override late final _StringsRu _root = this; // ignore: unused_field
 
 	// Translations
+	@override late final _StringsAuthRu auth = _StringsAuthRu._(_root);
 	@override late final _StringsNavbarRu navbar = _StringsNavbarRu._(_root);
+}
+
+// Path: auth
+class _StringsAuthRu implements _StringsAuthEn {
+	_StringsAuthRu._(this._root);
+
+	@override final _StringsRu _root; // ignore: unused_field
+
+	// Translations
+	@override String get authorization => 'Авторизация';
+	@override String get login => 'Логин';
+	@override String get password => 'Пароль';
+	@override String get no_accont => 'Нет аккаунта?';
+	@override String get sign_up => 'Зарегистрироваться';
+	@override String get sign_in => 'Войти';
+	@override String get foggot_password => 'Забыли пароль?';
 }
 
 // Path: navbar
@@ -206,6 +240,13 @@ class _StringsNavbarRu implements _StringsNavbarEn {
 extension on _StringsEn {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'auth.authorization': return 'Authorization';
+			case 'auth.login': return 'Login';
+			case 'auth.password': return 'Password';
+			case 'auth.no_accont': return 'No account?';
+			case 'auth.sign_up': return 'Sing Up';
+			case 'auth.sign_in': return 'Sign In';
+			case 'auth.foggot_password': return 'Foggot Password?';
 			case 'navbar.homepage': return 'Home';
 			case 'navbar.profile': return 'Profile';
 			default: return null;
@@ -216,6 +257,13 @@ extension on _StringsEn {
 extension on _StringsRu {
 	dynamic _flatMapFunction(String path) {
 		switch (path) {
+			case 'auth.authorization': return 'Авторизация';
+			case 'auth.login': return 'Логин';
+			case 'auth.password': return 'Пароль';
+			case 'auth.no_accont': return 'Нет аккаунта?';
+			case 'auth.sign_up': return 'Зарегистрироваться';
+			case 'auth.sign_in': return 'Войти';
+			case 'auth.foggot_password': return 'Забыли пароль?';
 			case 'navbar.homepage': return 'Главная';
 			case 'navbar.profile': return 'Профиль';
 			default: return null;

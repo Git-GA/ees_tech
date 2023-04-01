@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             Text(
-              t.navbar.homepage,
+              t.auth.authorization,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
@@ -46,7 +46,7 @@ class _LoginPageState extends State<LoginPage> {
                         : "Please enter a valid email",
                     maxLines: 1,
                     decoration: InputDecoration(
-                      hintText: 'Enter your email',
+                      hintText: t.auth.login,
                       prefixIcon: const Icon(Icons.email),
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
@@ -67,23 +67,11 @@ class _LoginPageState extends State<LoginPage> {
                     obscureText: true,
                     decoration: InputDecoration(
                       prefixIcon: const Icon(Icons.lock),
-                      hintText: 'Enter your password',
+                      hintText: t.auth.password,
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
                     ),
-                  ),
-                  CheckboxListTile(
-                    title: const Text("Remember me"),
-                    contentPadding: EdgeInsets.zero,
-                    value: rememberValue,
-                    activeColor: Theme.of(context).colorScheme.primary,
-                    onChanged: (newValue) {
-                      setState(() {
-                        rememberValue = newValue!;
-                      });
-                    },
-                    controlAffinity: ListTileControlAffinity.leading,
                   ),
                   const SizedBox(
                     height: 20,
@@ -95,8 +83,8 @@ class _LoginPageState extends State<LoginPage> {
                     style: ElevatedButton.styleFrom(
                       padding: const EdgeInsets.fromLTRB(40, 15, 40, 15),
                     ),
-                    child: const Text(
-                      'Sign in',
+                    child: Text(
+                      t.auth.sign_in,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
                       ),
@@ -108,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
-                      const Text('Not registered yet?'),
+                      Text(t.auth.no_accont),
                       TextButton(
                         onPressed: () {
                           Navigator.pushReplacement(
@@ -119,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                           );
                         },
-                        child: const Text('Create an account'),
+                        child: Text(t.auth.sign_up),
                       ),
                     ],
                   ),
