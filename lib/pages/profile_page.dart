@@ -1,8 +1,6 @@
 import 'package:ees_tech/widgets/profile_page/profile_info_stats.dart';
 import 'package:ees_tech/widgets/profile_page/total_progress_stats.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter/material.dart';
 
 import '../widgets/profile_page/week_stats.dart';
 

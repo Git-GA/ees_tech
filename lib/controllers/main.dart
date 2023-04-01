@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
-class MainController extends GetxController {
+class MainController {
   RxInt page = 0.obs;
+  late final db;
 }

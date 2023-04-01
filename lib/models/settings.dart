@@ -4,7 +4,9 @@ part 'settings.g.dart';
 
 @collection
 class Settings {
-  Id? id;
+  Id? id = null;
+
+  int? userId;
 
   String? lang;
 
