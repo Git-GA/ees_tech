@@ -71,7 +71,12 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ),
+                  const SizedBox(
+                    height: 20,
+                  ),
                   CheckboxListTile(
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10)),
                     title: const Text("Remember me"),
                     contentPadding: EdgeInsets.zero,
                     value: rememberValue,
