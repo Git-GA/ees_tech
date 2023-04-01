@@ -27,6 +27,7 @@ class CoursesPage extends StatelessWidget {
                 ],
               ),
             ],
+            ],
           ),
         ));
   }
