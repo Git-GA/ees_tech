@@ -11,12 +11,12 @@ class TotalProgressStats extends StatelessWidget {
         //height: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Theme.of(context).colorScheme.secondaryContainer,
+          // color: Theme.of(context).colorScheme.secondaryContainer,
         ),
         child: Column(
           children: [
             Padding(
-              padding: EdgeInsets.all(8.0),
+              padding: EdgeInsets.all(10.0),
               child: Center(
                 child: Text('Ваши достижения по курсам'),
               ),

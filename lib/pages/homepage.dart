@@ -1,3 +1,6 @@
+import 'package:ees_tech/widgets/home_page/all_courses_list.dart';
+import 'package:ees_tech/widgets/home_page/favorites%20_list.dart';
+import 'package:ees_tech/widgets/home_page/important_people.dart';
 import 'package:flutter/material.dart';
 
 class HomePage extends StatelessWidget {
@@ -6,19 +9,22 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          leading: Icon(Icons.library_books_outlined),
-          title: Text('Test'),
-        ),
-        body: Padding(
-          padding: const EdgeInsets.all(8.0),
+      appBar: AppBar(
+        leading: Icon(Icons.home_outlined),
+        title: Text('Главная'),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              LinearProgressIndicator(
-                value: 40 / 52,
-              )
+              FavoritesList(),
+              ImportantPeople(),
+              AllCoursesList(),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }

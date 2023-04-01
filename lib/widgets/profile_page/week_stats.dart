@@ -11,7 +11,7 @@ class WeekStats extends StatelessWidget {
         //height: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Theme.of(context).colorScheme.secondaryContainer,
+          // color: Theme.of(context).colorScheme.secondaryContainer,
         ),
         child: Column(
           children: [
@@ -25,7 +25,7 @@ class WeekStats extends StatelessWidget {
               elevation: 4,
               child: Container(
                 decoration: BoxDecoration(
-                  color: Theme.of(context).colorScheme.secondaryContainer,
+                  // color: Theme.of(context).colorScheme.secondaryContainer,
                   borderRadius: BorderRadius.circular(10),
                 ),
                 child: Padding(

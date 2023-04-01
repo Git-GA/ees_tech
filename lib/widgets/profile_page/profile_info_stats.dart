@@ -16,7 +16,7 @@ class ProfileInfoStats extends StatelessWidget {
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          color: Theme.of(context).colorScheme.secondaryContainer,
+          // color: Theme.of(context).colorScheme.secondaryContainer,
         ),
         child: Column(
           children: [
