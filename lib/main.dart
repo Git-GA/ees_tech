@@ -40,6 +40,7 @@ class MyApp extends StatelessWidget {
       ),
       darkTheme: ThemeData(
         brightness: Brightness.dark,
+        colorSchemeSeed: Colors.purple,
         useMaterial3: true,
       ),
       routerConfig: router,
