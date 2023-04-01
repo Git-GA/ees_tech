@@ -2,6 +2,8 @@ import 'package:ees_tech/pages/register_page.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 
+import '../i18n/en_US/strings.g.dart';
+
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -24,8 +26,8 @@ class _LoginPageState extends State<LoginPage> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
-            const Text(
-              'Sign in',
+            Text(
+              t.navbar.homepage,
               style: TextStyle(
                 fontWeight: FontWeight.bold,
                 fontSize: 40,
