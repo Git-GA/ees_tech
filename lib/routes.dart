@@ -1,5 +1,6 @@
 import 'package:ees_tech/controllers/main.dart';
 import 'package:ees_tech/pages/courses_page.dart';
+import 'package:ees_tech/pages/homepage.dart';
 // import 'package:ees_tech/pages/homepage.dart';
 import 'package:ees_tech/pages/profile_page.dart';
 import 'package:flutter/material.dart';
@@ -52,7 +53,7 @@ final router = GoRouter(
         GoRoute(
           path: '/home',
           pageBuilder: (context, state) =>
-              NoTransitionPage<void>(key: state.pageKey, child: Scaffold()),
+              NoTransitionPage<void>(key: state.pageKey, child: HomePage()),
         ),
         GoRoute(
           path: '/courses',
