@@ -4,9 +4,9 @@ class ProfileInfoStats extends StatelessWidget {
   const ProfileInfoStats({Key? key}) : super(key: key);
 
   final List<ProfileInfoItem> _items = const [
-    ProfileInfoItem("Posts", 900),
-    ProfileInfoItem("Followers", 120),
-    ProfileInfoItem("Following", 200),
+    ProfileInfoItem("Пройдено курсов", 900),
+    ProfileInfoItem("Достижений", 120),
+    ProfileInfoItem("Друзей", 200),
   ];
 
   @override
