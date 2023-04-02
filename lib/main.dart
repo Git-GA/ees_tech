@@ -1,4 +1,5 @@
 import 'package:ees_tech/controllers/home_page.dart';
+import 'package:ees_tech/controllers/main.dart';
 import 'package:ees_tech/controllers/user.dart';
 import 'package:ees_tech/models/courses/page.dart';
 import 'package:ees_tech/models/courses/part.dart';
@@ -27,23 +28,29 @@ Future<void> main() async {
     PartSchema
   ]);
   final settings = isar.settings;
-  if (await settings.get(1) == null) {
+  var settingsData = await settings.get(1);
+  if (settingsData == null) {
     await isar.writeTxn(() async {
       var properties = Settings()..userId = 1;
       await settings.put(properties);
+      settingsData = await settings.get(1);
     });
   }
-
-  WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.setLocale(AppLocale.ru);
-
   //Controllers init
+  Get.put(MainController(), permanent: true)
+    ..settings = settings
+    ..courses = isar.courses;
   Get.put(CourseController(), permanent: true);
   Get.put(UserController(), permanent: true);
-  final homePageController = Get.put(HomePageController(), permanent: true);
-  homePageController.InitRandomData();
+  Get.put(HomePageController(), permanent: true).InitRandomData();
 
-  //Setting SysemUIOverlay
+  WidgetsFlutterBinding.ensureInitialized();
+  settingsData!.lang == null
+      ? LocaleSettings.useDeviceLocale()
+      : LocaleSettings.setLocale(AppLocale.values.singleWhere(
+          (element) => element.languageCode == settingsData?.lang));
+
+  // Setting SysemUIOverlay
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       systemStatusBarContrastEnforced: false,
       systemNavigationBarColor: Colors.transparent,
@@ -54,7 +61,7 @@ Future<void> main() async {
   runApp(TranslationProvider(child: const MyApp()));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends GetView<MainController> {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
@@ -74,6 +81,11 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: Colors.indigo,
         useMaterial3: true,
       ),
+      themeMode: controller.settings.getSync(1).darkTheme == null
+          ? ThemeMode.system
+          : controller.settings.getSync(1).darkTheme
+              ? ThemeMode.dark
+              : ThemeMode.light,
       routerConfig: router,
     );
   }
