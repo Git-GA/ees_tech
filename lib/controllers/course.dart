@@ -13,10 +13,10 @@ class CourseController extends GetxController {
   RxInt currentCourse = 0.obs;
 
   Future<bool> getDataFromDB() async {
-    final db = Get.find<MainController>().db;
-    final settings = await db.settings.get(0);
-    final user = await db.users.get(settings.userId);
-    print(user);
+    // final db = Get.find<MainController>().db;
+    // final settings = await db.settings.get(0);
+    // final user = await db.users.get(settings.userId);
+    // print(user);
     return true;
   }
 
