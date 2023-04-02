@@ -34,7 +34,9 @@ class FavoritesList extends GetView<HomePageController> {
               ),
               Column(
                 children: List.generate(
-                      controller.favorites_list.length,
+                      controller.favorites_list.length > 3
+                          ? 3
+                          : controller.favorites_list.length,
                       (index) {
                         final stage = controller.favorites_list[index] as Stage;
                         String title = stage.title!;

@@ -4,6 +4,8 @@ import 'package:ees_tech/pages/first_layout_pages/homepage.dart';
 // import 'package:ees_tech/pages/homepage.dart';
 import 'package:ees_tech/pages/first_layout_pages/profile_page.dart';
 import 'package:ees_tech/pages/second_layout_pages/all_favorites_list.dart';
+import 'package:ees_tech/pages/second_layout_pages/all_important_people.dart';
+import 'package:ees_tech/pages/second_layout_pages/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -65,6 +67,11 @@ final router = GoRouter(
               path: "allFavorites",
               builder: (context, state) => AllFavorites(),
             ),
+            GoRoute(
+              parentNavigatorKey: _rootNabigationKey,
+              path: "allImportantPeople",
+              builder: (context, state) => AllImportantPeople(),
+            ),
           ],
         ),
         GoRoute(
@@ -80,6 +87,13 @@ final router = GoRouter(
             key: state.pageKey,
             child: ProfilePage(),
           ),
+          routes: [
+            GoRoute(
+              parentNavigatorKey: _rootNabigationKey,
+              path: "settings",
+              builder: (context, state) => SettingsPage(),
+            ),
+          ],
         ),
       ],
     ),

@@ -13,16 +13,13 @@ class HomePage extends StatelessWidget {
         leading: const Icon(Icons.home_outlined),
         title: const Text('Главная'),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              FavoritesList(),
-              ImportantPeople(),
-              AllCoursesList(),
-            ],
-          ),
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            FavoritesList(),
+            ImportantPeople(),
+            AllCoursesList(),
+          ],
         ),
       ),
     );

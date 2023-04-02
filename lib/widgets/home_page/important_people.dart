@@ -2,6 +2,7 @@ import 'package:ees_tech/controllers/home_page.dart';
 import 'package:ees_tech/models/personalData/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class ImportantPeople extends GetView<HomePageController> {
   const ImportantPeople({super.key});
@@ -34,7 +35,9 @@ class ImportantPeople extends GetView<HomePageController> {
               Obx(
                 () => Column(
                   children: List.generate(
-                        controller.important_people.length,
+                        controller.important_people.length > 3
+                            ? 3
+                            : controller.important_people.length,
                         (index) {
                           final user =
                               controller.important_people[index] as User;
@@ -48,7 +51,9 @@ class ImportantPeople extends GetView<HomePageController> {
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8.0)),
                           title: const Center(child: Text("Показать всех")),
-                          onTap: () {},
+                          onTap: () {
+                            context.push("/home/allImportantPeople");
+                          },
                         )
                       ],
                 ),

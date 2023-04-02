@@ -20,6 +20,12 @@ class HomePageController extends GetxController {
       Stage()
         ..title = "Как не грубить коллегам"
         ..description = "Из курса корпоративная этика",
+      Stage()
+        ..title = "Как не грубить коллегам"
+        ..description = "Из курса корпоративная этика",
+      Stage()
+        ..title = "Как не грубить коллегам"
+        ..description = "Из курса корпоративная этика",
     ];
 
     important_people.value = [
