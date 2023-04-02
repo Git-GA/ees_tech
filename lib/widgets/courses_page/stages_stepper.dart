@@ -16,7 +16,7 @@ class StagesStepper extends GetView<CourseController> {
           onStepTapped: (value) => controller.currentStages[index] = value,
           currentStep: controller.currentStages[index],
           steps: List<Step>.generate(
-            10,
+            20,
             (index) => Step(
               title: Text('Header of ${index} step'),
               content: StagesCard(description: 'Description of ${index} step'),

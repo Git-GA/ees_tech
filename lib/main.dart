@@ -1,19 +1,39 @@
-import 'package:ees_tech/controllers/home_page.dart';
-import 'package:ees_tech/controllers/user.dart';
+import 'package:ees_tech/models/courses/page.dart';
+import 'package:ees_tech/models/courses/part.dart';
+import 'package:ees_tech/models/courses/stage.dart';
+import 'package:ees_tech/models/personalData/user.dart';
+import 'package:ees_tech/models/settings.dart';
 import 'package:ees_tech/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
+import 'package:isar/isar.dart';
 
 import 'controllers/course.dart';
 import 'i18n/en_US/strings.g.dart';
+import 'models/courses/course.dart';
 
 Future<void> main() async {
   //Database init
+  final isar = await Isar.open([
+    SettingsSchema,
+    UserSchema,
+    CourseSchema,
+    PageSchema,
+    StageSchema,
+    PartSchema
+  ]);
+  final settings = isar.settings;
+  if (await settings.get(1) == null) {
+    await isar.writeTxn(() async {
+      var properties = Settings()..userId = 1;
+      await settings.put(properties);
+    });
+  }
 
   WidgetsFlutterBinding.ensureInitialized();
-  LocaleSettings.useDeviceLocale();
+  LocaleSettings.setLocale(AppLocale.ru);
 
   //Controllers init
   Get.put(CourseController(), permanent: true);
