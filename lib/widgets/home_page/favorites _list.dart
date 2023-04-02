@@ -2,6 +2,7 @@ import 'package:ees_tech/controllers/home_page.dart';
 import 'package:ees_tech/models/courses/stage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 class FavoritesList extends GetView<HomePageController> {
   const FavoritesList({super.key});
@@ -46,7 +47,9 @@ class FavoritesList extends GetView<HomePageController> {
                         shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(8.0)),
                         title: const Center(child: Text("Показать все")),
-                        onTap: () {},
+                        onTap: () {
+                          context.push("/allFavorites");
+                        },
                       )
                     ],
               )
