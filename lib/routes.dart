@@ -1,8 +1,8 @@
 import 'package:ees_tech/controllers/main.dart';
-import 'package:ees_tech/pages/courses_page.dart';
-import 'package:ees_tech/pages/homepage.dart';
+import 'package:ees_tech/pages/first_layout_pages/courses_page.dart';
+import 'package:ees_tech/pages/first_layout_pages/homepage.dart';
 // import 'package:ees_tech/pages/homepage.dart';
-import 'package:ees_tech/pages/profile_page.dart';
+import 'package:ees_tech/pages/first_layout_pages/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
