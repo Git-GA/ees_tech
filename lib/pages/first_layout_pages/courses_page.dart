@@ -4,7 +4,6 @@ import 'package:ees_tech/models/courses/course.dart';
 import 'package:ees_tech/models/personalData/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:isar/isar.dart';
 
 import '../../widgets/courses_page/courses.dart';
 import '../../widgets/courses_page/parts_card.dart';
@@ -27,7 +26,8 @@ class CoursesPage extends GetView<CourseController> {
                 },
                 child: AppBar(
                   leading: Icon(Icons.library_books_outlined),
-                  title: Container(child: Text('Test ^')),
+                  title: Row(
+                      children: [Text("Текст"), Icon(Icons.arrow_drop_down)]),
                   bottom: PreferredSize(
                     preferredSize: Size.fromHeight(
                         controller.istoolbarExpanded() ? 300 : 0),
@@ -43,8 +43,11 @@ class CoursesPage extends GetView<CourseController> {
                         : Container(),
                   ),
                 ))),
-        floatingActionButton:
-            FloatingActionButton(child: Icon(Icons.search), onPressed: () {}),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.search),
+            onPressed: () {
+              context.push("/courses/stagePage");
+            }),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(

@@ -7,4 +7,6 @@ class MainController extends GetxController {
   late final users;
   late final parts;
   late final stages;
+
+  final RxBool darkTheme = true.obs;
 }

@@ -6,6 +6,7 @@ import 'package:ees_tech/pages/first_layout_pages/profile_page.dart';
 import 'package:ees_tech/pages/second_layout_pages/all_favorites_list.dart';
 import 'package:ees_tech/pages/second_layout_pages/all_important_people.dart';
 import 'package:ees_tech/pages/second_layout_pages/settings_page.dart';
+import 'package:ees_tech/pages/second_layout_pages/stage_page.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -75,12 +76,18 @@ final router = GoRouter(
           ],
         ),
         GoRoute(
-          path: '/courses',
-          pageBuilder: (context, state) => NoTransitionPage<void>(
-            key: state.pageKey,
-            child: CoursesPage(),
-          ),
-        ),
+            path: '/courses',
+            pageBuilder: (context, state) => NoTransitionPage<void>(
+                  key: state.pageKey,
+                  child: CoursesPage(),
+                ),
+            routes: [
+              GoRoute(
+                parentNavigatorKey: _rootNabigationKey,
+                path: "stagePage",
+                builder: (context, state) => StagePage(),
+              ),
+            ]),
         GoRoute(
           path: '/profile',
           pageBuilder: (context, state) => NoTransitionPage<void>(

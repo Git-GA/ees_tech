@@ -13,26 +13,31 @@ class SettingsPage extends GetView<MainController> {
       appBar: AppBar(
         title: Text("Настройки"),
       ),
-      body: SettingsList(
-        sections: [
-          SettingsSection(
-            title: Text('Общие'),
-            tiles: <SettingsTile>[
-              SettingsTile.navigation(
-                leading: Icon(Icons.language),
-                title: Text('Язык'),
-                value: Text('Русский'),
-                onPressed: (contex) {},
-              ),
-              SettingsTile.switchTile(
-                onToggle: (value) {},
-                initialValue: true,
-                leading: Icon(Icons.format_paint),
-                title: Text('Использовать темную тему'),
-              ),
-            ],
-          ),
-        ],
+      body: Obx(
+        () => SettingsList(
+          sections: [
+            SettingsSection(
+              title: Text('Общие'),
+              tiles: [
+                SettingsTile.navigation(
+                  leading: Icon(Icons.language),
+                  title: Text('Язык'),
+                  value: Text('Русский'),
+                  onPressed: (contex) {},
+                ),
+                SettingsTile.switchTile(
+                  onToggle: (value) {
+                    controller.darkTheme(value);
+                  },
+                  initialValue: controller.darkTheme.value,
+                  leading: Icon(Icons.format_paint),
+                  title: Text('Использовать темную тему'),
+                  description: Text("Требуется перезагрузка"),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
