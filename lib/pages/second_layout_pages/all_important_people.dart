@@ -1,5 +1,4 @@
 import 'package:ees_tech/controllers/home_page.dart';
-import 'package:ees_tech/models/courses/stage.dart';
 import 'package:ees_tech/models/personalData/user.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/framework.dart';

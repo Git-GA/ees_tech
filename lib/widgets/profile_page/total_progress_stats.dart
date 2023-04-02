@@ -1,5 +1,4 @@
 import 'package:ees_tech/controllers/course.dart';
-import 'package:ees_tech/controllers/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -20,7 +19,7 @@ class TotalProgressStats extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(10.0),
                 child: Center(
                   child: Text('Ваши достижения по курсам'),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
 
 class StagePage extends StatefulWidget {
   const StagePage({super.key});
@@ -51,6 +50,7 @@ class _StagePageState extends State<StagePage> {
         },
         stepIconBuilder: (stepIndex, stepState) {
           print(stepState);
+          return null;
         },
         physics: AlwaysScrollableScrollPhysics(),
         currentStep: _currentStep,

@@ -1,7 +1,4 @@
 import 'package:ees_tech/controllers/course.dart';
-import 'package:ees_tech/main.dart';
-import 'package:ees_tech/models/courses/course.dart';
-import 'package:ees_tech/models/personalData/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:go_router/go_router.dart';
@@ -27,7 +24,7 @@ class CoursesPage extends GetView<CourseController> {
                 },
                 child: AppBar(
                   leading: Icon(Icons.library_books_outlined),
-                  title: Row(
+                  title: const Row(
                       children: [Text("Курс 1"), Icon(Icons.arrow_drop_down)]),
                   bottom: PreferredSize(
                     preferredSize: Size.fromHeight(
@@ -53,11 +50,11 @@ class CoursesPage extends GetView<CourseController> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              LinearProgressIndicator(
+              const LinearProgressIndicator(
                 value: 40 / 52,
               ),
-              SizedBox(height: 10),
-              Row(
+              const SizedBox(height: 10),
+              const Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
                   Text(
@@ -65,7 +62,7 @@ class CoursesPage extends GetView<CourseController> {
                   ),
                 ],
               ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(

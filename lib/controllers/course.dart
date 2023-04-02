@@ -1,8 +1,6 @@
 import 'package:ees_tech/controllers/main.dart';
-import 'package:ees_tech/models/courses/part.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:isar/isar.dart';
 
 import '../models/courses/course.dart';
 
