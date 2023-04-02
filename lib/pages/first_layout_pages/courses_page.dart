@@ -24,7 +24,8 @@ class CoursesPage extends GetView<CourseController> {
                 },
                 child: AppBar(
                   leading: Icon(Icons.library_books_outlined),
-                  title: Container(child: Text('Test ^')),
+                  title: Row(
+                      children: [Text("Текст"), Icon(Icons.arrow_drop_down)]),
                   bottom: PreferredSize(
                     preferredSize: Size.fromHeight(
                         controller.istoolbarExpanded() ? 300 : 0),
