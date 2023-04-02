@@ -1,6 +1,10 @@
 import 'package:ees_tech/controllers/course.dart';
+import 'package:ees_tech/main.dart';
+import 'package:ees_tech/models/courses/course.dart';
+import 'package:ees_tech/models/personalData/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:isar/isar.dart';
 
 import '../../widgets/courses_page/courses.dart';
 import '../../widgets/courses_page/parts_card.dart';
@@ -31,12 +35,10 @@ class CoursesPage extends GetView<CourseController> {
                         ? SingleChildScrollView(
                             scrollDirection: Axis.horizontal,
                             child: Row(
-                                children: List.generate(
-                                    3,
-                                    (index) => CoursesCard(
-                                          index: index,
-                                          title: 'Course ${index + 1}',
-                                        ))),
+                                children: List.from(
+                              controller.courses.map((e) =>
+                                  CoursesCard(index: e.id, title: e.title)),
+                            )),
                           )
                         : Container(),
                   ),
@@ -64,10 +66,7 @@ class CoursesPage extends GetView<CourseController> {
                 scrollDirection: Axis.horizontal,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
-                  children: List.generate(
-                      5,
-                      (index) =>
-                          PartsCard(index: index, title: 'Part ${index + 1}')),
+                  children: List.from(),
                 ),
               ),
               Expanded(
