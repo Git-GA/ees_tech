@@ -6,12 +6,11 @@ import '../widgets/courses_page/courses.dart';
 import '../widgets/courses_page/parts_card.dart';
 import '../widgets/courses_page/stages_stepper.dart';
 
-class CoursesPage extends StatelessWidget {
+class CoursesPage extends GetView<CourseController> {
   const CoursesPage({super.key});
 
   @override
   build(BuildContext context) {
-    final controller = Get.put(CourseController());
     controller.partController =
         PageController(initialPage: controller.currentPart());
     return Obx(() => Scaffold(
@@ -73,14 +72,15 @@ class CoursesPage extends StatelessWidget {
               ),
               Expanded(
                 child: PageView(
+                  clipBehavior: Clip.antiAlias,
                   onPageChanged: (value) => controller.currentPart(value),
                   controller: controller.partController,
                   children: List.generate(5, (index) {
                     controller.currentStages.add(0);
-                    return Expanded(child: StagesStepper(index: index));
+                    return StagesStepper(index: index);
                   }),
                 ),
-              )
+              ),
             ],
           ),
         )));

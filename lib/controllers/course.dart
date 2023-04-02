@@ -8,7 +8,7 @@ class CourseController extends GetxController {
   Course? data;
   RxInt currentPart = 0.obs;
   RxList<int> currentStages = [0].obs;
-  var partController;
+  late PageController partController;
   RxBool istoolbarExpanded = false.obs;
   RxInt currentCourse = 0.obs;
 

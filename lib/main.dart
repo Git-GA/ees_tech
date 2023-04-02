@@ -2,7 +2,9 @@ import 'package:ees_tech/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:get/get.dart';
 
+import 'controllers/course.dart';
 import 'i18n/en_US/strings.g.dart';
 
 Future<void> main() async {
@@ -10,6 +12,9 @@ Future<void> main() async {
 
   WidgetsFlutterBinding.ensureInitialized();
   LocaleSettings.useDeviceLocale();
+
+  //Controllers init
+  Get.put(CourseController(), permanent: true);
 
   //Setting SysemUIOverlay
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

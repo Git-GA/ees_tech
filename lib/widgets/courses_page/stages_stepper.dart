@@ -11,6 +11,7 @@ class StagesStepper extends GetView<CourseController> {
   @override
   Widget build(BuildContext context) {
     return Obx(() => Stepper(
+          // physics: (),
           controlsBuilder: (context, details) => Container(),
           onStepTapped: (value) => controller.currentStages[index] = value,
           currentStep: controller.currentStages[index],
