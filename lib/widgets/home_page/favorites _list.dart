@@ -48,7 +48,7 @@ class FavoritesList extends GetView<HomePageController> {
                             borderRadius: BorderRadius.circular(8.0)),
                         title: const Center(child: Text("Показать все")),
                         onTap: () {
-                          context.push("/allFavorites");
+                          context.push("/home/allFavorites");
                         },
                       )
                     ],

@@ -11,12 +11,16 @@ import 'package:go_router/go_router.dart';
 import 'i18n/en_US/strings.g.dart';
 
 final _controller = MainController();
+final _rootNabigationKey = GlobalKey<NavigatorState>();
+final _shellNabigationKey = GlobalKey<NavigatorState>();
 
 // Создаем экземпляр GoRouter с ShellRoute и GoRoute
 final router = GoRouter(
+  navigatorKey: _rootNabigationKey,
   initialLocation: '/home',
   routes: [
     ShellRoute(
+      navigatorKey: _shellNabigationKey,
       // ShellRoute показывает UI-оболочку вокруг соответствующего дочернего маршрута
       builder: (context, state, child) {
         // UI-оболочка - это Scaffold с NavigationBar
@@ -55,7 +59,13 @@ final router = GoRouter(
           path: '/home',
           pageBuilder: (context, state) =>
               NoTransitionPage<void>(key: state.pageKey, child: HomePage()),
-          routes: [],
+          routes: [
+            GoRoute(
+              parentNavigatorKey: _rootNabigationKey,
+              path: "allFavorites",
+              builder: (context, state) => AllFavorites(),
+            ),
+          ],
         ),
         GoRoute(
           path: '/courses',
@@ -72,10 +82,6 @@ final router = GoRouter(
           ),
         ),
       ],
-    ),
-    GoRoute(
-      path: "/allFavorites",
-      builder: (context, state) => AllFavorites(),
     ),
   ],
 );
