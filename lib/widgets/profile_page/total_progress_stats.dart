@@ -46,46 +46,32 @@ class TotalProgressStats extends StatelessWidget {
     );
   }
 
-  Padding courseStatsTile(BuildContext context, String imgSrc,
+  ListTile courseStatsTile(BuildContext context, String imgSrc,
       String courseName, String courseStatus, double progressValue) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
+    return ListTile(
+      // onTap: () {},
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(90),
+        child: Image.asset(imgSrc),
+      ),
+      title: Text(courseName),
+      subtitle: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          SizedBox(
-            width: 100,
-            height: 100,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(90),
-              child: Image.asset(imgSrc),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: Text(
+              courseStatus,
+              style: Theme.of(context).textTheme.bodySmall,
             ),
           ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(courseName),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16.0),
-                    child: Text(
-                      courseStatus,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16.0),
-                    child: LinearProgressIndicator(
-                      value: progressValue,
-                    ),
-                  ),
-                ],
-              ),
+          Padding(
+            padding: const EdgeInsets.only(top: 16.0),
+            child: LinearProgressIndicator(
+              value: progressValue,
             ),
-          )
+          ),
         ],
       ),
     );
