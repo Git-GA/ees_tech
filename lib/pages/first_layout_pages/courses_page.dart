@@ -2,9 +2,9 @@ import 'package:ees_tech/controllers/course.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../widgets/courses_page/courses.dart';
-import '../widgets/courses_page/parts_card.dart';
-import '../widgets/courses_page/stages_stepper.dart';
+import '../../widgets/courses_page/courses.dart';
+import '../../widgets/courses_page/parts_card.dart';
+import '../../widgets/courses_page/stages_stepper.dart';
 
 class CoursesPage extends GetView<CourseController> {
   const CoursesPage({super.key});

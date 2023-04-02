@@ -1,3 +1,5 @@
+import 'package:ees_tech/controllers/home_page.dart';
+import 'package:ees_tech/controllers/user.dart';
 import 'package:ees_tech/models/courses/page.dart';
 import 'package:ees_tech/models/courses/part.dart';
 import 'package:ees_tech/models/courses/stage.dart';
