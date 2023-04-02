@@ -1,4 +1,5 @@
 import 'package:ees_tech/controllers/user.dart';
+import 'package:ees_tech/i18n/en_US/strings.g.dart';
 import 'package:ees_tech/widgets/profile_page/profile_info_stats.dart';
 import 'package:ees_tech/widgets/profile_page/total_progress_stats.dart';
 import 'package:flutter/material.dart';
@@ -21,7 +22,7 @@ class ProfilePage extends GetView<UserController> {
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text("Профиль"),
+                Text(t.navbar.profile),
                 IconButton(
                     onPressed: () {
                       context.push("/profile/settings");

@@ -1,6 +1,7 @@
 import 'package:ees_tech/controllers/course.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../widgets/courses_page/courses.dart';
 import '../../widgets/courses_page/parts_card.dart';
@@ -41,8 +42,11 @@ class CoursesPage extends GetView<CourseController> {
                         : Container(),
                   ),
                 ))),
-        floatingActionButton:
-            FloatingActionButton(child: Icon(Icons.search), onPressed: () {}),
+        floatingActionButton: FloatingActionButton(
+            child: Icon(Icons.search),
+            onPressed: () {
+              context.push("/courses/stagePage");
+            }),
         body: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Column(
