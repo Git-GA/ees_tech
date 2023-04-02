@@ -6,7 +6,7 @@ part 'settings.g.dart';
 class Settings {
   Id id = Isar.autoIncrement;
 
-  int? userId = 1; //До реализации авторизации
+  int? userId;
 
   String? lang;
 

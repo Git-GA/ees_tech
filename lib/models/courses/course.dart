@@ -13,4 +13,6 @@ class Course {
   int? expAmount;
 
   List<int>? partIds;
+
+  int? currentIndex;
 }
