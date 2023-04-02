@@ -1,3 +1,5 @@
+import 'package:ees_tech/controllers/home_page.dart';
+import 'package:ees_tech/controllers/user.dart';
 import 'package:ees_tech/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -15,6 +17,9 @@ Future<void> main() async {
 
   //Controllers init
   Get.put(CourseController(), permanent: true);
+  Get.put(UserController(), permanent: true);
+  final homePageController = Get.put(HomePageController(), permanent: true);
+  homePageController.InitRandomData();
 
   //Setting SysemUIOverlay
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(

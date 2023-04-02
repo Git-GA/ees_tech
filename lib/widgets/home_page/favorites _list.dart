@@ -1,6 +1,9 @@
+import 'package:ees_tech/controllers/home_page.dart';
+import 'package:ees_tech/models/courses/stage.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class FavoritesList extends StatelessWidget {
+class FavoritesList extends GetView<HomePageController> {
   const FavoritesList({super.key});
 
   @override
@@ -18,7 +21,7 @@ class FavoritesList extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -29,29 +32,23 @@ class FavoritesList extends StatelessWidget {
                 ),
               ),
               Column(
-                children: [
-                  favoriteStageTile(
-                    context,
-                    "Как не сувать пальцы в розеткку",
-                    "Из курса техника безопасности",
-                  ),
-                  favoriteStageTile(
-                    context,
-                    "Как зовут начальника",
-                    "Из курса знакомство с команией",
-                  ),
-                  favoriteStageTile(
-                    context,
-                    "Как не грубить коллегам",
-                    "Из курса корпоративная этека",
-                  ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0)),
-                    title: Center(child: const Text("Показать все")),
-                    onTap: () {},
-                  )
-                ],
+                children: List.generate(
+                      controller.favorites_list.length,
+                      (index) {
+                        final stage = controller.favorites_list[index] as Stage;
+                        String title = stage.title!;
+                        String description = stage.description!;
+                        return favoriteStageTile(context, title, description);
+                      },
+                    ) +
+                    [
+                      ListTile(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(8.0)),
+                        title: const Center(child: Text("Показать все")),
+                        onTap: () {},
+                      )
+                    ],
               )
             ],
           ),
@@ -60,7 +57,8 @@ class FavoritesList extends StatelessWidget {
     );
   }
 
-  favoriteStageTile(BuildContext context, String title, String subTitle) {
+  ListTile favoriteStageTile(
+      BuildContext context, String title, String subTitle) {
     return ListTile(
       title: Text(title),
       subtitle: Text(subTitle),

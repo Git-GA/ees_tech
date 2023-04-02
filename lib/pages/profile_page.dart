@@ -1,10 +1,12 @@
+import 'package:ees_tech/controllers/user.dart';
 import 'package:ees_tech/widgets/profile_page/profile_info_stats.dart';
 import 'package:ees_tech/widgets/profile_page/total_progress_stats.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widgets/profile_page/week_stats.dart';
 
-class ProfilePage extends StatelessWidget {
+class ProfilePage extends GetView<UserController> {
   const ProfilePage({super.key});
 
   @override
@@ -33,7 +35,9 @@ class ProfilePage extends StatelessWidget {
                   SizedBox(
                     height: 20,
                   ),
-                  const Center(child: Text("Hi Loral")),
+                  Center(
+                      child:
+                          Obx(() => Text("Hi ${controller.userName.value}"))),
                 ],
               ),
             ),
@@ -44,11 +48,8 @@ class ProfilePage extends StatelessWidget {
               child: Column(
                 children: [
                   ProfileInfoStats(),
-                  SizedBox(height: 20),
                   WeekStats(),
-                  SizedBox(height: 20),
                   TotalProgressStats(),
-                  SizedBox(height: 20),
                 ],
               ),
             ),

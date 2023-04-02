@@ -7,39 +7,42 @@ class WeekStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-        ),
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Center(
-                child: Text('Ваши достижения за неделю'),
-              ),
-            ),
-            Card(
-              elevation: 4,
-              child: Container(
-                decoration: BoxDecoration(
-                  // color: Theme.of(context).colorScheme.secondaryContainer,
-                  borderRadius: BorderRadius.circular(10),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        elevation: 5,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+          ),
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Center(
+                  child: Text('Ваши достижения за неделю'),
                 ),
-                child: Padding(
-                  padding: const EdgeInsets.all(20.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: weekList(context),
+              ),
+              Card(
+                elevation: 4,
+                child: Container(
+                  decoration: BoxDecoration(
+                    // color: Theme.of(context).colorScheme.secondaryContainer,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: weekList(context),
+                    ),
                   ),
                 ),
               ),
-            ),
-            // w
-            bottomStatsList(context: context),
-          ],
+              // w
+              bottomStatsList(context: context),
+            ],
+          ),
         ),
       ),
     );

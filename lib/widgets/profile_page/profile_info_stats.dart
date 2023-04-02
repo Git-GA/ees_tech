@@ -11,42 +11,45 @@ class ProfileInfoStats extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      elevation: 5,
-      child: Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(10),
-          // color: Theme.of(context).colorScheme.secondaryContainer,
-        ),
-        child: Column(
-          children: [
-            const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Center(
-                child: Text('Ваши достижения'),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(bottom: 8.0),
-              child: Container(
-                height: 80,
-                constraints: const BoxConstraints(maxWidth: 400),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: _items
-                      .map((item) => Expanded(
-                              child: Row(
-                            children: [
-                              if (_items.indexOf(item) != 0)
-                                const VerticalDivider(),
-                              Expanded(child: _singleItem(context, item)),
-                            ],
-                          )))
-                      .toList(),
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        elevation: 5,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10),
+            // color: Theme.of(context).colorScheme.secondaryContainer,
+          ),
+          child: Column(
+            children: [
+              const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Center(
+                  child: Text('Ваши достижения'),
                 ),
               ),
-            ),
-          ],
+              Padding(
+                padding: const EdgeInsets.only(bottom: 8.0),
+                child: Container(
+                  height: 80,
+                  constraints: const BoxConstraints(maxWidth: 400),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: _items
+                        .map((item) => Expanded(
+                                child: Row(
+                              children: [
+                                if (_items.indexOf(item) != 0)
+                                  const VerticalDivider(),
+                                Expanded(child: _singleItem(context, item)),
+                              ],
+                            )))
+                        .toList(),
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       ),
     );

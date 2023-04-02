@@ -1,6 +1,9 @@
+import 'package:ees_tech/controllers/home_page.dart';
+import 'package:ees_tech/models/personalData/user.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
-class ImportantPeople extends StatelessWidget {
+class ImportantPeople extends GetView<HomePageController> {
   const ImportantPeople({super.key});
 
   @override
@@ -18,7 +21,7 @@ class ImportantPeople extends StatelessWidget {
           ),
           child: Column(
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -28,28 +31,33 @@ class ImportantPeople extends StatelessWidget {
                   ],
                 ),
               ),
-              Column(
-                children: [
-                  personViewTile(context, "Иван Иванович Иванов",
-                      "Отдел программной разработки"),
-                  personViewTile(
-                    context,
-                    "Петр Петровович Петров",
-                    "Отдел маркетинга",
-                  ),
-                  personViewTile(
-                    context,
-                    "Кирилл Котсянов Костянин",
-                    "SMM",
-                  ),
-                  ListTile(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8.0)),
-                    title: Center(child: const Text("Показать всех")),
-                    onTap: () {},
-                  )
-                ],
-              )
+              Obx(
+                () => Column(
+                  children: List.generate(
+                        controller.important_people.length,
+                        (index) {
+                          final user =
+                              controller.important_people[index] as User;
+                          String fullName = user.name!;
+                          String role = user.role!;
+                          return personViewTile(context, fullName, role);
+                        },
+                      ) +
+                      [
+                        ListTile(
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(8.0)),
+                          title: const Center(child: Text("Показать всех")),
+                          onTap: () {},
+                        )
+                      ],
+                ),
+              ),
+              //   children: controller.important_people.map(
+              //     (person) => personViewTile(context, "Иван Иванович Иванов",
+              //         "Отдел программной разработки"),
+              //   ),
+              // )
             ],
           ),
         ),
