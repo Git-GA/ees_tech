@@ -3,6 +3,7 @@ import 'package:ees_tech/widgets/profile_page/profile_info_stats.dart';
 import 'package:ees_tech/widgets/profile_page/total_progress_stats.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../widgets/profile_page/week_stats.dart';
 
@@ -17,7 +18,17 @@ class ProfilePage extends GetView<UserController> {
           SliverAppBar(
             pinned: true,
             expandedHeight: MediaQuery.of(context).size.height * 0.3,
-            title: const Text("Профиль"),
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text("Профиль"),
+                IconButton(
+                    onPressed: () {
+                      context.push("/profile/settings");
+                    },
+                    icon: Icon(Icons.settings)),
+              ],
+            ),
             flexibleSpace: FlexibleSpaceBar(
               collapseMode: CollapseMode.parallax,
               background: Column(
@@ -43,15 +54,12 @@ class ProfilePage extends GetView<UserController> {
             ),
           ),
           const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(8.0),
-              child: Column(
-                children: [
-                  ProfileInfoStats(),
-                  WeekStats(),
-                  TotalProgressStats(),
-                ],
-              ),
+            child: Column(
+              children: [
+                ProfileInfoStats(),
+                WeekStats(),
+                TotalProgressStats(),
+              ],
             ),
           ),
         ],

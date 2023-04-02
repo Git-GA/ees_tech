@@ -8,7 +8,9 @@ class AllFavorites extends GetView<HomePageController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        title: const Text("Избранные статьи"),
+      ),
       body: ListView.builder(
         itemCount: controller.favorites_list.length,
         itemBuilder: (BuildContext context, int index) {
