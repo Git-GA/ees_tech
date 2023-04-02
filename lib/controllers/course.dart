@@ -13,11 +13,19 @@ class CourseController extends GetxController {
   RxInt currentCourse = 0.obs;
 
   Future<bool> getDataFromDB() async {
-    // final db = Get.find<MainController>().db;
-    // final settings = await db.settings.get(0);
-    // final user = await db.users.get(settings.userId);
-    // print(user);
+    final MainController main = Get.find();
+    print(main.settings.getSync(1).userId);
+    // var test = await db.settings.get(1);
+    // print(db.settings.getSync(1).dar);
+
     return true;
+  }
+
+  @override
+  void onInit() {
+    getDataFromDB();
+    // TODO: implement onInit
+    super.onInit();
   }
 
   void switchPart(index) {
