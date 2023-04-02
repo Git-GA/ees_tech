@@ -1,29 +1,40 @@
 import 'package:ees_tech/controllers/main.dart';
-import 'package:ees_tech/widgets/courses_page/parts_card.dart';
+import 'package:ees_tech/models/courses/part.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:isar/isar.dart';
 
 import '../models/courses/course.dart';
-import '../models/courses/part.dart';
 
 class CourseController extends GetxController {
-  Course? data;
+  Course? course;
   RxInt currentPart = 0.obs;
   RxList<int> currentStages = [0].obs;
   late PageController partController;
-  late List<Part> curentParts;
+  late var parts;
   RxBool istoolbarExpanded = false.obs;
   RxInt currentCourse = 0.obs;
   MainController main = Get.find();
   List courses = [];
 
+  Future<void> changeState(index, value) async {
+    currentStages[index] = value;
+
+    parts[index].currentIndex = value;
+    // await isar.writeTxn(() async {
+    //   main.parts.put(parts[index]);
+    // });
+  }
+
   Future<bool> getDataFromDB() async {
     int userId = (await main.settings.get(1)).userId;
     currentCourse((await main.users.get(userId)).activeCourse);
-    var course = await main.courses.get(currentCourse());
-    var parts = await main.parts.getAll(course.partIds);
-    currentPart(course.currentIndex);
-    parts.map((el) => currentStages.add(el.currentIndex));
+    course = await main.courses.get(currentCourse());
+    parts = await main.parts.getAll(course?.partIds);
+    currentPart(course?.currentIndex);
+    List.from(parts.map((el) {
+      currentStages.add(el.currentIndex);
+    }));
 
     // await (main.courses.where().findAll());
     // var test = await db.settings.get(1);

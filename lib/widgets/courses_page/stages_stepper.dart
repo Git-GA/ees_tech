@@ -13,10 +13,10 @@ class StagesStepper extends GetView<CourseController> {
     return Obx(() => Stepper(
           // physics: (),
           controlsBuilder: (context, details) => Container(),
-          onStepTapped: (value) => controller.currentStages[index] = value,
+          onStepTapped: (value) => controller.changeState(index, value),
           currentStep: controller.currentStages[index],
           steps: List<Step>.generate(
-            20,
+            5,
             (index) => Step(
               title: Text('Header of ${index} step'),
               content: StagesCard(description: 'Description of ${index} step'),

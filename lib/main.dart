@@ -51,7 +51,7 @@ Future<void> main() async {
     ..title = 'Test Title'
     ..description = 'Hi)'
     ..expAmount = 5
-    ..partIds = [14, 19, 11]
+    ..partIds = [0, 1, 2]
     ..currentIndex = 2;
   var course2 = Course()
     ..id = 2
@@ -68,21 +68,21 @@ Future<void> main() async {
     ..partIds = [14, 19, 11]
     ..currentIndex = 2;
   var part1 = Part()
-    ..id = 14
+    ..id = 0
     ..title = 'Test Part'
     ..expAmount = 600
     ..stageIds = [1, 2, 3, 4, 5]
     ..currentIndex = 3;
 
   var part2 = Part()
-    ..id = 19
+    ..id = 1
     ..title = 'Test Part2'
     ..expAmount = 600
     ..stageIds = [5, 4, 3]
     ..currentIndex = 2;
 
   var part3 = Part()
-    ..id = 11
+    ..id = 2
     ..title = 'Test Part3'
     ..expAmount = 600
     ..stageIds = [2, 1]

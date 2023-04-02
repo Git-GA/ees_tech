@@ -4,6 +4,7 @@ import 'package:ees_tech/models/courses/course.dart';
 import 'package:ees_tech/models/personalData/user.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 
 import '../../widgets/courses_page/courses.dart';
 import '../../widgets/courses_page/parts_card.dart';
@@ -27,7 +28,7 @@ class CoursesPage extends GetView<CourseController> {
                 child: AppBar(
                   leading: Icon(Icons.library_books_outlined),
                   title: Row(
-                      children: [Text("Текст"), Icon(Icons.arrow_drop_down)]),
+                      children: [Text("Курс 1"), Icon(Icons.arrow_drop_down)]),
                   bottom: PreferredSize(
                     preferredSize: Size.fromHeight(
                         controller.istoolbarExpanded() ? 300 : 0),
@@ -68,20 +69,20 @@ class CoursesPage extends GetView<CourseController> {
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: List.from(),
-                ),
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: List.from(
+                      controller.parts
+                          .map((e) => PartsCard(index: e.id, title: e.title)),
+                    )),
               ),
               Expanded(
                 child: PageView(
-                  clipBehavior: Clip.antiAlias,
-                  onPageChanged: (value) => controller.currentPart(value),
-                  controller: controller.partController,
-                  children: List.generate(5, (index) {
-                    controller.currentStages.add(0);
-                    return StagesStepper(index: index);
-                  }),
-                ),
+                    clipBehavior: Clip.antiAlias,
+                    onPageChanged: (value) => controller.currentPart(value),
+                    controller: controller.partController,
+                    children: List.from(
+                      controller.parts.map((e) => StagesStepper(index: e.id)),
+                    )),
               ),
             ],
           ),
