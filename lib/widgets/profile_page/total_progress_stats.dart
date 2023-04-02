@@ -1,4 +1,6 @@
+import 'package:ees_tech/controllers/course.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class TotalProgressStats extends StatelessWidget {
   const TotalProgressStats({super.key});
@@ -23,14 +25,26 @@ class TotalProgressStats extends StatelessWidget {
             ),
             Column(
               children: [
-                courseStatsTile(context, "assets/img/default_course_image.png",
-                    "Знакомство с команией", "В процессе", 0.5),
+                courseStatasTile(
+                    context: context,
+                    imgSrc: "assets/img/default_course_image.png",
+                    courseName: "Знакомство с команией",
+                    courseStatus: "В процессе",
+                    progressValue: 0.5),
                 const Divider(),
-                courseStatsTile(context, "assets/img/default_course_image.png",
-                    "Техника безопасности", "В процессе", 0.8),
+                courseStatasTile(
+                    context: context,
+                    imgSrc: "assets/img/default_course_image.png",
+                    courseName: "Техника безопасности",
+                    courseStatus: "В процессе",
+                    progressValue: 0.8),
                 const Divider(),
-                courseStatsTile(context, "assets/img/default_course_image.png",
-                    "Корпоративная этика", "В процессе", 0.2),
+                courseStatasTile(
+                    context: context,
+                    imgSrc: "assets/img/default_course_image.png",
+                    courseName: "Корпоративная этика",
+                    courseStatus: "В процессе",
+                    progressValue: 0.2),
                 const Divider(),
                 ListTile(
                   shape: RoundedRectangleBorder(
@@ -45,9 +59,26 @@ class TotalProgressStats extends StatelessWidget {
       ),
     );
   }
+}
 
-  ListTile courseStatsTile(BuildContext context, String imgSrc,
-      String courseName, String courseStatus, double progressValue) {
+class courseStatasTile extends GetView<CourseController> {
+  const courseStatasTile({
+    super.key,
+    required this.context,
+    required this.imgSrc,
+    required this.courseName,
+    required this.courseStatus,
+    required this.progressValue,
+  });
+
+  final BuildContext context;
+  final String imgSrc;
+  final String courseName;
+  final String courseStatus;
+  final double progressValue;
+
+  @override
+  Widget build(BuildContext context) {
     return ListTile(
       // onTap: () {},
       leading: ClipRRect(
