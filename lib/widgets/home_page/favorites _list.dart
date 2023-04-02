@@ -19,7 +19,7 @@ class FavoritesList extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(16.0),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [

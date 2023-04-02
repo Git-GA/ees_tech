@@ -1,4 +1,6 @@
+import 'package:ees_tech/controllers/course.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class WeekStats extends StatelessWidget {
   const WeekStats({super.key});
@@ -8,14 +10,12 @@ class WeekStats extends StatelessWidget {
     return Card(
       elevation: 5,
       child: Container(
-        //height: 150,
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(10),
-          // color: Theme.of(context).colorScheme.secondaryContainer,
         ),
         child: Column(
           children: [
-            Padding(
+            const Padding(
               padding: EdgeInsets.all(8.0),
               child: Center(
                 child: Text('Ваши достижения за неделю'),
@@ -38,7 +38,7 @@ class WeekStats extends StatelessWidget {
               ),
             ),
             // w
-            bottomStatsList(context),
+            bottomStatsList(context: context),
           ],
         ),
       ),
@@ -98,8 +98,18 @@ class WeekStats extends StatelessWidget {
       ),
     ];
   }
+}
 
-  Padding bottomStatsList(BuildContext context) {
+class bottomStatsList extends GetView<CourseController> {
+  const bottomStatsList({
+    super.key,
+    required this.context,
+  });
+
+  final BuildContext context;
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 16.0),
       child: Row(

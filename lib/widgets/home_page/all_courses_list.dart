@@ -18,7 +18,7 @@ class AllCoursesList extends StatelessWidget {
           child: Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(10.0),
+                padding: EdgeInsets.all(16.0),
                 child: Center(
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -33,6 +33,10 @@ class AllCoursesList extends StatelessWidget {
                 children: [
                   courseTile(context, "assets/img/default_course_image.png",
                       "Знакомство с команией", "В процессе"),
+                  courseTile(context, "assets/img/default_course_image.png",
+                      "Техника безопасности", "В процессе"),
+                  courseTile(context, "assets/img/default_course_image.png",
+                      "Корпаративная этика", "В процессе"),
                   ListTile(
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8.0)),
@@ -48,42 +52,22 @@ class AllCoursesList extends StatelessWidget {
     );
   }
 
-  Padding courseTile(BuildContext context, String imgSrc, String courseName,
-      String shortDescription) {
-    return Padding(
-      padding: const EdgeInsets.all(8.0),
-      child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          SizedBox(
-            width: 100,
-            height: 100,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(90),
-              child: Image.asset(imgSrc),
-            ),
-          ),
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(courseName),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16.0),
-                    child: Text(
-                      shortDescription,
-                      style: Theme.of(context).textTheme.bodySmall,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          )
-        ],
+  ListTile courseTile(
+    BuildContext context,
+    String imgSrc,
+    String courseName,
+    String shortDescription,
+  ) {
+    return ListTile(
+      // shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      onTap: () {},
+      leading: ClipRRect(
+        borderRadius: BorderRadius.circular(90),
+        child: Image.asset(imgSrc),
       ),
+      title: Text(courseName),
+      subtitle: Text(shortDescription),
+      trailing: Icon(Icons.arrow_right),
     );
   }
 }
